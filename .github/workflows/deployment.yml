@@ -1,0 +1,17 @@
+name: Deployment 
+on:
+  push:
+    branches: [main]
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest #ubuntu is a container here to run on 
+    steps:
+      - uses: actions/checkout@v2 #pull the repo and checkout the branch 
+      - uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+        BRANCH: main
+        FOLDER: .
+
+       
